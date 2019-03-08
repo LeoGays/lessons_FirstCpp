@@ -29,7 +29,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Box &);
 
-    friend std::istream&operator>>(std::istream& in, const Box &);
+    friend std::istream&operator>>(std::istream& in,  Box &);
 
     int getLength() const;
 

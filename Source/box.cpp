@@ -41,7 +41,7 @@ std::ostream& operator<<(std::ostream &out, const Box &box) {
     return out;
 }
 
-std::istream& operator>>(std::istream &in, const Box &box) {
+std::istream& operator>>(std::istream &in,  Box &box) {
     in >> box.length;
     in >> box.width;
     in >> box.height;

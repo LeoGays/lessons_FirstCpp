@@ -5,17 +5,19 @@
 #ifndef LESSONBYBOX_ARRAYBOXPROCESSOR_H
 #define LESSONBYBOX_ARRAYBOXPROCESSOR_H
 
+#include <vector>
 #include "box.h"
 
 class ArrayBoxProcessor {
 
-    static double sumOfTheAllTheBoxes (Box *, int );
+public:
+    static double sumOfTheAllTheBoxes (const std::vector<Box> &);
 
-    static bool chekingTheAmountOfMeasurements(Box *, int, int);
+    static bool chekingTheAmountOfMeasurements(const std::vector<Box> &, int);
 
-    static double findingTheHeaviestBox (Box *, int, int);
+    static double findingTheHeaviestBox (const std::vector<Box> &, int);
 
-    static bool nestingCheck (Box *, int);
+    static bool nestingCheck ( std::vector<Box> &);
 
 };
 
