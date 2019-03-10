@@ -4,6 +4,8 @@
 
 #include "../Header/box.h"
 #include <iostream>
+using namespace space_Box;
+
 Box::Box(int length, int width, int height, double weight, double value) {
     setLength(length);
     setWidth(width);

@@ -2,7 +2,9 @@
 #include "../Header/arrayBoxProcessor.h"
 #include "../Header/box.h"
 
-double ArrayBoxProcessor::sumOfTheAllTheBoxes(const std::vector<Box> & arrayBox) {
+using namespace space_ArrayBoxProccessor;
+
+double ArrayBoxProcessor::sumOfTheAllTheBoxes(const std::vector<space_Box::Box> & arrayBox) {
     double sumValue = 0;
     for(int i = 0; i < arrayBox.size(); i++ ) {
         sumValue += arrayBox[i].getValue();
@@ -10,7 +12,7 @@ double ArrayBoxProcessor::sumOfTheAllTheBoxes(const std::vector<Box> & arrayBox)
     return sumValue;
 }
 
-bool ArrayBoxProcessor::chekingTheAmountOfMeasurements(const std::vector<Box> & arrayBox, int topGrade) {
+bool ArrayBoxProcessor::chekingTheAmountOfMeasurements(const std::vector<space_Box::Box> & arrayBox, int topGrade) {
     int sum = 0;
     for (int i = 0; i <arrayBox.size() ; i++) {
         sum += arrayBox[i].getWidth() + arrayBox[i].getHeight() + arrayBox[i].getLength();
@@ -18,7 +20,7 @@ bool ArrayBoxProcessor::chekingTheAmountOfMeasurements(const std::vector<Box> & 
     return sum <= topGrade;
 }
 
-double ArrayBoxProcessor::findingTheHeaviestBox(const std::vector<Box> & arrayBox, int maxV) {
+double ArrayBoxProcessor::findingTheHeaviestBox(const std::vector<space_Box::Box> & arrayBox, int maxV) {
     double max = 0;
     for (int i = 0; i <arrayBox.size(); i++) {
         if(arrayBox[i].getHeight()*arrayBox[i].getLength()*arrayBox[i].getWidth() <= maxV && max < arrayBox[i].getWeight()) {
@@ -28,20 +30,20 @@ double ArrayBoxProcessor::findingTheHeaviestBox(const std::vector<Box> & arrayBo
     return max;
 }
 
-bool ArrayBoxProcessor::nestingCheck(std::vector<Box> & arrayBox ) {
+bool ArrayBoxProcessor::nestingCheck(std::vector<space_Box::Box> & arrayBox ) {
     int size = arrayBox.size();
-    std::vector<Box> arrayCopy = arrayBox;
+    std::vector<space_Box::Box> arrayCopy = arrayBox;
     for (int i = 0; i <size -1; i++) {
         int smallElemIndex = i;
         for(int j = i + 1; j < size; j++) {
-            if(!(Box::boxComprasion(arrayBox[j], arrayBox[smallElemIndex]))) {
+            if(!(space_Box::Box::boxComprasion(arrayBox[j], arrayBox[smallElemIndex]))) {
                 return false;
             }
             if(arrayBox[j] < arrayBox[smallElemIndex]) {
                 smallElemIndex = j;
             }
         }
-        Box object = arrayBox[i];
+        space_Box::Box object = arrayBox[i];
         arrayBox[i] = arrayBox[smallElemIndex];
         arrayBox[smallElemIndex] = object;
 

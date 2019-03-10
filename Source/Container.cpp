@@ -3,6 +3,9 @@
 //
 
 #include "../Header/Container.h"
+#include "../Header/ContainerException.h"
+
+using namespace space_Container;
 
 Container::Container(int length, int width, int height, double maxWeight) : length(length), width(width),
                                                                             height(height), maxWeight(maxWeight) {}
@@ -18,7 +21,7 @@ double Container::getTotalWeight() {
     return sumWeight;
 }
 
-Box Container::getBox(int i) {
+space_Box::Box Container::getBox(int i) {
     return arrayBox[i];
 }
 
@@ -38,8 +41,18 @@ std::istream& operator>>(std::istream &in, Container & container) {
     return in;
 }
 
-Box& Container::operator[](const int index) {
+space_Box::Box& Container::operator[](const int index) {
     return arrayBox[index];
+}
+
+void Container::addBox(const space_Box::Box & box) {
+    if (Container::getTotalWeight() + box.getWeight() > Container::maxWeight) {
+        throw ContainerException("Weight is greater than maximum!");
+    }
+}
+
+void Container::removeBoxByIndex(int index) {
+    arrayBox.erase(arrayBox.begin() + index);
 }
 
 

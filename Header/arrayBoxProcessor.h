@@ -8,18 +8,19 @@
 #include <vector>
 #include "box.h"
 
-class ArrayBoxProcessor {
+namespace space_ArrayBoxProccessor {
+    class ArrayBoxProcessor {
 
-public:
-    static double sumOfTheAllTheBoxes (const std::vector<Box> &);
+    public:
+        static double sumOfTheAllTheBoxes(const std::vector<space_Box::Box> &);
 
-    static bool chekingTheAmountOfMeasurements(const std::vector<Box> &, int);
+        static bool chekingTheAmountOfMeasurements(const std::vector<space_Box::Box> &, int);
 
-    static double findingTheHeaviestBox (const std::vector<Box> &, int);
+        static double findingTheHeaviestBox(const std::vector<space_Box::Box> &, int);
 
-    static bool nestingCheck ( std::vector<Box> &);
+        static bool nestingCheck(std::vector<space_Box::Box> &);
 
-};
-
+    };
+}
 
 #endif //LESSONBYBOX_ARRAYBOXPROCESSOR_H

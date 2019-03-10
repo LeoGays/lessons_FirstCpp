@@ -6,52 +6,53 @@
 #define LESSONBYBOX_BOX_H
 
 #include <iostream>
-class Box {
-private:
-    int length;
-    int width;
-    int height;
-    double weight;
-    double value;
-public:
+namespace space_Box {
+    class Box {
+    private:
+        int length;
+        int width;
+        int height;
+        double weight;
+        double value;
+    public:
 
-    Box(int,int,int, double, double);
+        Box(int, int, int, double, double);
 
-    Box(Box*);
+        Box(Box *);
 
-    static bool boxComprasion( const Box &, const Box &);
+        static bool boxComprasion(const Box &, const Box &);
 
-    friend bool operator ==(const Box &, const Box &);
+        friend bool operator==(const Box &, const Box &);
 
-    friend bool operator >(const Box &, const Box &);
+        friend bool operator>(const Box &, const Box &);
 
-    friend bool operator <(const Box &, const Box &);
+        friend bool operator<(const Box &, const Box &);
 
-    friend std::ostream& operator<<(std::ostream& out, const Box &);
+        friend std::ostream &operator<<(std::ostream &out, const Box &);
 
-    friend std::istream&operator>>(std::istream& in,  Box &);
+        friend std::istream &operator>>(std::istream &in, Box &);
 
-    int getLength() const;
+        int getLength() const;
 
-    void setLength(int length);
+        void setLength(int length);
 
-    int getWidth() const;
+        int getWidth() const;
 
-    void setWidth(int width);
+        void setWidth(int width);
 
-    int getHeight() const;
+        int getHeight() const;
 
-    void setHeight(int height);
+        void setHeight(int height);
 
-    double getWeight() const;
+        double getWeight() const;
 
-    void setWeight(double weight);
+        void setWeight(double weight);
 
-    double getValue() const;
+        double getValue() const;
 
-    void setValue(double value);
+        void setValue(double value);
 
-    ~Box();
-};
-
+        ~Box();
+    };
+}
 #endif //LESSONBYBOX_BOX_H
